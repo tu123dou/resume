@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        var desW = 640;
+        var winW = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = winW / desW * 100 + "px";
+    </script>
+
+</head>
+<body>
+<section class="main">
+    <section class="music">
+    <audio src="audio/beyond.mp3" preload="none" id="beyond"></audio>
+    <!--controls 显示用户操作界面
+    autoplay 自动播放
+    loop 循环播放
+    preload :auto 预加载音频文件
+    metadata 只加载音频文件的元数据，例如（音频文件总共的播放时间）
+    none 不提前加载音频文件
+    -->
+    </section>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--第一页-->
+            <div class="swiper-slide slide1">
+                <div class="bg">
+                    <img src="image/1.jpg" alt="" class="img1">
+                    <p></p>
+
+                </div>
+                <div class=" slide1-main">
+                    <div class="me"><img src="image/me1.jpg" alt=""></div>
+                    <p class="person">个人简历</p>
+                    <p class="line1"></p>
+                    <span class="get">求职前端工程师</span>
+                    <p class="line2"></p>
+                </div>
+            </div>
+            <!--第二页-->
+            <div class="swiper-slide slide2">
+                <div class="bg">
+                    <img src="image/1.jpg" alt="" class="img1">
+                    <p></p>
+
+                </div>
+                <header>
+                    <div class="left"><img src="" alt=""></div>
+                    <div class="right">
+                        <p>个人信息</p>
+                        <p></p>
+                        <p>ABOUT</p>
+                    </div>
+                </header>
+                <main>
+                    <ul>
+                        <li>姓名:</li>
+                        <li>职位:</li>
+                        <li>地址</li>
+                        <li>专业</li>
+                        <li>毕业院校</li>
+                        <li>学历</li>
+                        <li>工作经验</li>
+                    </ul>
+                </main>
+            </div>
+            <!--第三页-->
+            <div class="swiper-slide slide3">
+                <div class="bg">
+                    <img src="image/1.jpg" alt="" class="img1">
+                    <p></p>
+                </div>
+                <header>
+                    <div class="left"><img src="" alt=""></div>
+                    <div class="right">
+                        <p>专业技能</p>
+                        <p></p>
+                        <p>ABOUT</p>
+                    </div>
+                </header>
+                <main>
+                    <ul>
+                        <li>姓名:</li>
+                        <li>职位:</li>
+                        <li>地址</li>
+                        <li>专业</li>
+                        <li>毕业院校</li>
+                        <li>学历</li>
+                        <li>工作经验</li>
+                    </ul>
+                </main>
+            </div>
+            <div class="swiper-slide  slide4">
+                <div class="bg">
+                    <img src="image/1.jpg" alt="" class="img1">
+                    <p></p>
+                </div>
+                <header>
+                    <div class="left"><img src="" alt=""></div>
+                    <div class="right">
+                        <p>专业技能</p>
+                        <p></p>
+                        <p>ABOUT</p>
+                    </div>
+                </header>
+                <main>
+                    <ul class="left">
+                        <li>某年某月</li>
+                        <li>某年某月</li>
+                        <li>某年某月</li>
+                        <li>某年某月</li>
+                    </ul>
+                    <div class="slide4-line"></div>
+                    <ul class="right">
+                        <li>工作经验</li>
+                        <li>工作经验</li>
+                        <li>工作经验</li>
+                        <li>工作经验</li>
+                    </ul>
+                </main>
+
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script src="js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper(".swiper-container", {
+        direction: "vertical",
+        loop: true, /*循环模式*/
+        onTransitionEnd: function (swiper) {
+            var curIndex = swiper.activeIndex;//当前活动滑块的索引（从0到length-1 也就是上一个滑块滑动结束后，到下一个滑块的索引）
+            var slides = swiper.slides;//获得所有的滑块
+            //要实现循环要做的事情：通过当前活动滑块的索引找到对应的滑块，并给它增加相应的id名
+            [].forEach.call(slides, function (item, index) {
+                item.id = "";//在给当前滑块增加id名之前，把所有的滑块的id名去掉
+                if (index == curIndex) {
+                    //当前活动滑块是否是第一个或者最后一个
+                    switch (index) {
+                        case 0:
+                            item.id = "page" + (slides.length - 2);
+                            break;
+                        case slides.length - 1:
+                            item.id = "page1";
+                            break;
+                        default :
+                            item.id = "page" + index;
+                    }
+                }
+            })
+        }
+    });
+    var music = document.querySelector(".music");
+    var beyond = document.querySelector("#beyond");
+    window.setTimeout(function () {
+        beyond.play();
+        music.style.opacity = 1;
+        music.className = "music musicMove";
+    }, 1000);
+    /*音频文件播放 play() 停止 pause()
+     * 怎样判断音频文件是播放还是停止的  beyond.paused true->停止 false->播放
+     * */
+    music.addEventListener("click", function () {
+        if (beyond.paused) {
+            beyond.play();
+            music.className = "music musicMove";
+        } else {
+            beyond.pause();
+            music.className = "music";
+        }
+    }, false)
+
+
+</script>
+</html>

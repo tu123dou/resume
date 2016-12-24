@@ -1,0 +1,464 @@
+html,body,.main{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.swiper-container{
+    width: 100%;
+    height: 100%;
+}
+.swiper-wrapper{
+    width:100%;
+    height:100%;
+}
+/*开始对音乐的设置*/
+.music{
+    width: 0.6rem;
+    height: 0.6rem;
+    position: absolute;
+    right: 0.2rem;
+    top: 0.2rem;
+    z-index: 111;
+    background: url(../audio/music.svg) no-repeat;
+    background-size: 100% 100%;
+    opacity: 0;
+}
+.musicMove{
+    -webkit-animation:move 1s infinite linear both;
+    animation:move 1s infinite linear both;
+}
+
+@-webkit-keyframes move {
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes move {
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+/*结束对音乐的设置*/
+/*开始背景设置*/
+.bg{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+}
+.bg img{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.bg p{
+    position: absolute;
+    top:0;
+    left:0;
+     width: 100%;
+     height: 100%;
+     background:rgba(20,22,25,0.83);
+ }
+/*结束背景设置*/
+/*开始对第一张的设置*/
+.swiper-slide{
+    width: 100%;
+    height:100%;
+    position: relative;
+}
+.slide1 .me{
+    margin: 1.7rem auto;
+    width:2.5rem;
+    height:2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    /*position: absolute;*/
+    /*top:1.7rem;*/
+}
+
+.slide1 .me img{
+    width:2.5rem;
+    height:2.5rem;
+}
+.slide1 .person{
+    color: rgba(74,205,146,1);
+    font-size: 0.8rem;
+    margin-left:1.6rem;
+    font-family: "Microsoft Yahei";
+}
+.slide1-main{
+    opacity: 0;
+}
+.slide1-main span{
+    display:block;
+    width:4rem;
+    text-align: center;
+    margin:0 auto;
+    font-size: 0.41rem;
+    color:rgba(255,255,255,0.8);
+}
+.line1{
+    margin:0.6rem auto 0.2rem;
+    width:4rem;
+    border: 1px solid white;
+}
+.line2{
+    margin:0.2rem auto 0.2rem;
+    width:4rem;
+    border: 1px solid white;
+}
+    /*对第一张加动画*/
+#page1 .slide1-main{
+    opacity: 1;
+}
+#page1 .me{
+     animation: zoomIn 1s 1 both;
+ }
+#page1 .person{
+    /*怎么实现延迟0.6s且一开始不会出现*/
+    animation: zoomIn 1s  1 0.6s both ;
+}
+#page1 .line1{
+    animation:slideInLeft 1s 1  both
+}
+#page1 .line2{
+    animation:slideInRight 1s 1  both
+}
+#page1 .get{
+    animation: zoomIn 1s 1 0.8s both;
+}
+/*第一张结束*/
+
+/*开始设置第二张*/
+.slide2 header{
+    overflow: hidden;
+}
+.slide2 header .left{
+    float: left;
+}
+.slide2 header .right{
+    width:4rem;
+    float: right;
+}
+.slide2 header .right{
+    padding: 0.4rem 0 0.4rem;
+}
+.slide2 header .right p:nth-child(1){
+    font-size: 0.45rem;
+    color: rgba(74,205,146,1);
+}
+.slide2 header .right p:nth-child(2){
+    margin:0.1rem 0 0.1rem;
+    width:3.7rem;
+    border:0.02rem solid rgba(74,205,146,1)
+}
+.slide2 header .right p:nth-child(3){
+    letter-spacing: 0.07rem;
+    font-size: 0.25rem;
+    color: rgba(74,205,146,0.62);
+}
+.slide2 main{
+    height: 100%;
+    margin-top:0.1rem;
+    width:100%;
+}
+.slide2 main ul{
+    padding-top: 0.3rem;
+    width:100%;
+    /*height: 100%;*/
+    background: rgba(20,22,25,0.25);
+}
+.slide2 main ul li{
+    margin: 0.3rem 0.7rem 0;
+    height: 0.8rem;
+    background: rgba(255,255,255,0.13);
+    color: rgba(255,255,255,0.81);
+    text-align: center;
+    line-height: 0.8rem;
+    font-size: 0.35rem;
+}
+/*开始第二张动画*/
+.slide2 header,.slide2 main{
+    opacity: 0;
+}
+#page2  header,#page2  main{
+    opacity: 1;
+}
+#page2 .right p:nth-child(1){
+    animation: slideInDown 1s 1 both;
+}
+#page2 .right p:nth-child(2){
+    animation: moveP 1s 1 both;
+}
+#page2 .right p:nth-child(3){
+    animation: slideInUp 1s 1 both;
+}
+@keyframes moveP {
+    0%{
+        transform: scale(0,1);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+#page2 main li:nth-child(1){
+    animation:fadeIn 2s 1 0.8s both
+}
+#page2 main li:nth-child(2){
+    animation:fadeIn 2s 1 1s both
+}#page2 main li:nth-child(3){
+    animation:fadeIn 2s 1 1.2s both
+}
+#page2 main li:nth-child(4){
+    animation:fadeIn 2s 1 1.4s both
+}
+#page2 main li:nth-child(5){
+    animation:fadeIn 2s 1 1.6s both
+}
+#page2 main li:nth-child(6){
+    animation:fadeIn 2s 1 1.8s both
+}
+#page2 main li:nth-child(7){
+    animation:fadeIn 2s 1 2s both
+}
+/*结束第二张动画*/
+/*开始第三张*/
+.slide3 header{
+    overflow: hidden;
+}
+.slide3 header .left{
+    float: left;
+}
+.slide3 header .right{
+    width:4rem;
+    float: right;
+}
+.slide3 header .right{
+    padding: 0.4rem 0 0.4rem;
+}
+.slide3 header .right p:nth-child(1){
+    font-size: 0.45rem;
+    color: rgba(74,205,146,1);
+}
+.slide3 header .right p:nth-child(2){
+    margin:0.1rem 0 0.1rem;
+    width:3.7rem;
+    border:0.02rem solid rgba(74,205,146,1)
+}
+.slide3 header .right p:nth-child(3){
+    letter-spacing: 0.07rem;
+    font-size: 0.25rem;
+    color: rgba(74,205,146,0.62);
+}
+.slide3 main{
+    height: 100%;
+    margin-top:0.1rem;
+    width:100%;
+}
+.slide3 main ul{
+    padding-top: 0.3rem;
+    width:100%;
+    /*height: 100%;*/
+    background: rgba(20,22,25,0.25);
+}
+.slide3 main ul li{
+    margin: 0.3rem 0.7rem 0;
+    width:4.7rem;
+    height: 0.8rem;
+    background: rgba(255,255,255,0.13);
+    color: rgba(255,255,255,0.81);
+    text-align: center;
+    line-height: 0.8rem;
+    font-size: 0.35rem;
+}
+/*开始第三张动画*/
+.slide3 header,.slide3 main{
+    opacity: 0;
+}
+#page3  header,#page3  main{
+    opacity: 1;
+}
+#page3 .right p:nth-child(1){
+    animation: slideInDown 1s 1 both;
+}
+#page3 .right p:nth-child(2){
+    animation: moveP 1s 1 both;
+}
+#page3 .right p:nth-child(3){
+    animation: slideInUp 1s 1 both;
+}
+@keyframes moveP {
+    0%{
+        transform: scale(0,1);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+#page3 main li:nth-child(1){
+    animation:slideInLeft1 2s 1 0.8s both
+}
+#page3 main li:nth-child(2){
+    animation:slideInLeft1 2s 1 1s both
+}
+#page3 main li:nth-child(3){
+     animation:slideInLeft1 2s 1 1.2s both
+ }
+#page3 main li:nth-child(4){
+    animation:slideInLeft1 2s 1 1.4s both
+}
+#page3 main li:nth-child(5){
+    animation:slideInLeft1 2s 1 1.6s both
+}
+#page3 main li:nth-child(6){
+    animation:slideInLeft1 2s 1 1.8s both
+}
+#page3 main li:nth-child(7){
+    animation:slideInLeft1 2s 1 2s both
+}
+@keyframes slideInLeft1 {
+    0%{
+        margin-left: -5rem;
+    }
+    100%{
+        margin-left:0.7rem;
+    }
+}
+@keyframes slideInLeft2 {
+    0%{
+        margin-left: -5rem;
+    }
+    100%{
+        margin-left:0.3rem;
+    }
+}
+@keyframes slideInRight2 {
+    0%{
+        margin-right: -15rem;
+    }
+    100%{
+        margin-right:-2rem;
+    }
+}
+/*结束第三张动画*/
+/*结束第三张*/
+/*开始第四张*/
+.slide4 header{
+    overflow: hidden;
+}
+.slide4 header .left{
+    float: left;
+}
+.slide4 header .right{
+    width:4rem;
+    float: right;
+}
+.slide4 header .right{
+    padding: 0.4rem 0 0.4rem;
+}
+.slide4 header .right p:nth-child(1){
+    font-size: 0.45rem;
+    color: rgba(74,205,146,1);
+}
+.slide4 header .right p:nth-child(2){
+    margin:0.1rem 0 0.1rem;
+    width:3.7rem;
+    border:0.02rem solid rgba(74,205,146,1)
+}
+.slide4 header .right p:nth-child(3){
+    letter-spacing: 0.07rem;
+    font-size: 0.25rem;
+    color: rgba(74,205,146,0.62);
+}
+.slide4 main{
+    position: relative;
+    overflow: hidden;
+    padding-top: 1rem;
+    width:100%;
+    /*height: 100%;*/
+    background: rgba(20,22,25,0.25);
+}
+.slide4{
+    width:100%;
+    height: 100%;
+}
+.slide4 main ul.left{
+    float: left;
+}
+.slide4 .slide4-line{
+    position: absolute;
+    top:1.5rem;
+    left:2.1rem;
+    height: 6.3rem;
+    float: left;
+    border:0.02rem solid red;
+}
+.slide4 main ul.right{
+    float: left;
+}
+.slide4 main ul.left li{
+    width:1.5rem;
+    margin: 0.7rem 0.3rem 0;
+    height: 0.8rem;
+    background: rgba(255,255,255,0.13);
+    color: rgba(255,255,255,0.81);
+    text-align: center;
+    line-height: 0.8rem;
+    font-size: 0.35rem;
+}
+.slide4 main ul.right li{
+    margin: 0.7rem 0.3rem 0;
+    height: 0.8rem;color: rgba(255,255,255,0.81);text-align: center;
+    line-height: 0.8rem;
+    font-size: 0.35rem;
+}
+    /*开始第四张动画*/
+.slide4 header,.slide4 main{
+    opacity: 0;
+}
+#page4  header,#page4  main{
+    opacity: 1;
+}
+#page4 .right p:nth-child(1){
+    animation: slideInDown 1s 1 both;
+}
+#page4 .right p:nth-child(2){
+    animation: moveP 1s 1 both;
+}
+#page4 .right p:nth-child(3){
+    animation: slideInUp 1s 1 both;
+}
+
+#page4 main .left li:nth-child(1){
+    animation: slideInLeft2 1s 1 0.7s both;
+}#page4 main .left li:nth-child(2){
+    animation: slideInLeft2 1s 1 0.8s both;
+}#page4 main .left li:nth-child(3){
+    animation: slideInLeft2 1s 1 0.9s both;
+}#page4 main .left li:nth-child(4){
+    animation: slideInLeft2 1s 1 1s both;
+}
+ #page4 main .right li:nth-child(1){
+    animation:slideInRight2 1s 1 0.7s both
+ }#page4 main .right li:nth-child(2){
+    animation:slideInRight2 1s 1 0.8s both
+ }#page4 main .right li:nth-child(3){
+    animation:slideInRight2 1s 1 0.9s both
+ }#page4 main .right li:nth-child(4){
+    animation:slideInRight2 1s 1 1s both
+ }
